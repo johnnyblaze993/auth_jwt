@@ -8,10 +8,26 @@ micronaut:
         signatures:
           secret:
             generator:
-              secret: ${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}
+              secret: '"testSecret"'
+    server:
+    cors:
+      enabled: true
+      configurations:
+        allowedHeaders:
+          - Content-Type
+        allowedMethods:
+          - GET
+          - POST
+          - DELETE
+        allowedOrigins:
+          - http://localhost:3000
 datasources:
   default:
-    driver-class-name: org.postgresql.Driver
-    db-type: postgres
-    schema-generate: CREATE_DROP
-    dialect: POSTGRES
+    url: jdbc:postgresql://localhost:5432/worktest
+    username: postgres
+    password: Roxy1993!!!
+    driverClassName: org.postgresql.Driver
+netty:
+  default:
+    allocator:
+      max-order: 3
